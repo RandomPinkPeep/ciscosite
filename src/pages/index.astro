@@ -1,38 +1,35 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Contact from '../components/contactform.astro'
 ---
 
 <Layout title="astro-cube">
   <main>
     <article class="region prose wrapper hero">
-      <h1>astro-cube</h1>
+      <h1>Welcome</h1>
 
-      <h2>
-        a tiny <a href="https://astro.build/">Astro</a> starter template, with <a
-          href="https://cube.fyi/">CUBE CSS</a
-        >
-      </h2>
+      <h2>Check out our services below </h2>
+      
     </article>
 
     <article class="region prose wrapper">
       <ul role="list" class="grid features">
         <li class="flow">
-          <h3>minimal</h3>
+          <h3>PC Builds</h3>
           <p>
-            Barebones, <em>just Astro</em> and <em>pure CSS</em>, no other
-            external tools, extra build step or client-side JavaScript.
+           We can make you a parts list based on your budget and requirements. We can also assemeble the computer for you.
           </p>
         </li>
 
         <li class="flow">
-          <h3>customizable</h3>
+          <h3>Repairs</h3>
           <p>
-            Everything here is just suggestive, remove, add, tweak, copy/paste,
-            <em>knock yourself out</em>.
+            We do many types of repairs
+            some of which include: Laptop, Desktop, Keyboard, Mouse, etc.
           </p>
         </li>
 
-        <li class="flow">
+        <!-- <li class="flow">
           <h3>robust</h3>
           <p>
             Based on <a href="https://buildexcellentwebsit.es/"
@@ -50,10 +47,12 @@ import Layout from '../layouts/Layout.astro';
             >, they adapt to the viewport's size instead of arbitrary
             breakpoints — looks good on <em>all devices</em>.
           </p>
-        </li>
+        </li> -->
       </ul>
     </article>
-
+    <article class="region prose wrapper hero">
+      <h2>Contact Us Bellow</h2>
+      <Contact />
     <footer class="region prose wrapper">
       See <a href="https://github.com/williamhzo/astro-cube">source code</a>,
       contributions are welcome! <span role="img" aria-label="waving hand emoji"

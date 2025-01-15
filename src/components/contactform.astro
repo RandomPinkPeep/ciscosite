@@ -1,0 +1,127 @@
+---
+import { Select } from 'free-astro-components'
+import { Input } from 'free-astro-components'
+import { Textarea } from 'free-astro-components'
+import { Modal, ModalHeader, ModalBody, ModalFooter, Input, Button } from 'free-astro-components'
+---
+
+
+<form id="myForm">
+  <Input
+    label="Email"
+    name="email"
+    type="email"
+    placeholder="Email"
+    required
+  />
+  <Select
+    label="service"
+    options={[
+      { value: 'PC Build', label: 'PC Build' },
+      { value: 'Repair', label: 'Repair' },
+    ]}
+    name="service"
+    placeholder="serivce"
+  />
+  <Textarea
+    label="Message"
+    name="message"
+    type="text"
+    placeholder="Message"
+    required
+  />
+  <Button icon="upload" icon-position="right" type="submit" label="Submit" />
+</form>
+<Modal id="modal-example">
+  <ModalHeader>
+    <h4>Thank you for your intrest </h3>
+  </ModalHeader>
+  <ModalBody>
+    <p2>We will get back to you as soon as possible.</p2>
+  </ModalBody>
+  <ModalFooter>
+    <Button label="Close now" data-modal-close>
+  </ModalFooter>
+</Modal>
+
+<script>
+  document.getElementById('myForm').addEventListener('submit', function (event) {
+    event.preventDefault(); // Prevent the default form submission
+
+    const formData = new FormData(this);
+
+    fetch('https://script.google.com/macros/s/AKfycbyOTwge3Ucl8mIjVb4-_MFyV-bXZFH3z8X5nuv4Uoxph7-3GgXMCzvQpznoKCwzfK_I4Q/exec', {
+      method: 'POST',
+      body: formData,
+    })
+      .then(response => response.json())
+      .then(data => {
+        console.log('Success:', data);  
+      })
+      .catch((error) => {
+        console.error('Error:', error);
+      });
+  });
+
+  import { openModal, closeModal } from 'free-astro-components';
+
+  const form = document.querySelector('#myForm');
+  const modal = document.querySelector('#modal-example');
+
+  form.addEventListener('submit', (event) => {
+    event.preventDefault();
+    openModal(modal);
+
+    setTimeout(() => {
+      closeModal(modal)
+    }, 3000);
+  });
+</script>
+
+<style>
+
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    
+  }
+  
+  
+  label {
+    font-size: 1.35rem;
+      display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .btn {
+    font-size: 2.5rem;
+      background-color: var(--color-primary);
+    color: var(--color-white);
+    padding: 2rem 1rem;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+  }
+  .contact {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+  
+  }
+  
+  h4 {
+    font-size: 2.3rem;
+    margin: 0;
+    margin-bottom: 5px;
+
+  }
+
+  p2 {
+    font-size 1.1rem;
+
+  }
+
+  </style>
+  
